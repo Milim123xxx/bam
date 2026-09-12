@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: discord-afk-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: GUILD_ID
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.9"
